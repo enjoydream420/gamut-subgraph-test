@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "GamutFactory": {
+      "address": "0xDE835555399fC860122B0673d7A892aA7af2b5C3",
+      "startBlock": 8087218
+    }
+  }
+}

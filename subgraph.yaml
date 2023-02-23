@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: GamutFactory
+    network: kava-evm
+    source:
+      address: "0xbD4C56E952c238389AEE995E1ed504cA646D199B"
+      abi: GamutFactory
+      startBlock: 8087218
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipTransferred
+        - PoolCreated
+      abis:
+        - name: GamutFactory
+          file: ./abis/GamutFactory.json
+      eventHandlers:
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PoolCreated(indexed address,indexed address,indexed address)
+          handler: handlePoolCreated
+      file: ./src/gamut-factory.ts
